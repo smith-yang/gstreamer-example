@@ -1,0 +1,20 @@
+TARGET = gstreamer_pipeline_manually gstreamer_pipeline_auto
+
+CFLAGS = -Wall
+
+PROG_GSTREAMER_PIPELINE_MANUALLY_MOD = gstreamer_pipeline_manually
+PROG_GSTREAMER_PIPELINE_MANUALLY_SRC = gstreamer_pipeline_manually.c
+PROG_GSTREAMER_PIPELINE_AUTO_MOD = gstreamer_pipeline_auto
+PROG_GSTREAMER_PIPELINE_AUTO_SRC = gstreamer_pipeline_auto.c
+
+
+all: ${PROG_GSTREAMER_PIPELINE_MANUALLY_MOD} ${PROG_GSTREAMER_PIPELINE_AUTO_MOD}
+
+${PROG_GSTREAMER_PIPELINE_MANUALLY_MOD}: clean
+	$(CC) $(CFLAGS) -o $@ ${PROG_GSTREAMER_PIPELINE_MANUALLY_SRC}
+
+${PROG_GSTREAMER_PIPELINE_AUTO_MOD}: clean
+	$(CC) $(CFLAGS) -o $@ ${PROG_GSTREAMER_PIPELINE_AUTO_SRC}
+
+clean:
+	rm -f *.o ${TARGET}
